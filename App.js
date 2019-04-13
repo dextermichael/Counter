@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 export default class App extends React.Component {
   state = {
@@ -20,14 +20,15 @@ export default class App extends React.Component {
             width: 200,
             justifyContent: "space-around"
           }}
-        />
-        <TouchableOpacity onPress={() => this.increaseCounter()}>
-          <Text style={{ fontSize: 20 }}>Increase</Text>
-        </TouchableOpacity>
-        <Text style={{ fontSize: 20 }}>{this.state.counter}</Text>
-        <TouchableOpacity onPress={() => this.decreaseCounter()}>
-          <Text style={{ fontSize: 20 }}>Decrease</Text>
-        </TouchableOpacity>
+        >
+          <TouchableOpacity onPress={() => this.increaseCounter()}>
+            <Text style={{ fontSize: 20 }}>Increase</Text>
+          </TouchableOpacity>
+          <Text style={{ fontSize: 20 }}>{this.state.counter}</Text>
+          <TouchableOpacity onPress={() => this.decreaseCounter()}>
+            <Text style={{ fontSize: 20 }}>Decrease</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
