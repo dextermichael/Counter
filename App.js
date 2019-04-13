@@ -1,17 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import CounterApp from "src/CounterApp";
-export default class App extends React.Component {
-  /**
-   * Store - holds our state - THERE IS ONLY ONE STATE
-   * Action - State can mofified using actions - SIMPLE OBJECTS
-   * Dispactcher - Action needs to be sent by someone - known as dispatching an action
-   * Reducer - recieves the action and modifes the state to give us a new state
-   * -pure funtion
-   * -only mandotory/arugment is the 'type;
-   * Subscriber -listens for state change to update the ui (using connect)
-   */
+import CounterApp from "./src/CounterApp";
+import { createStore } from "redux";
 
+/**
+ * Store - holds our state - THERE IS ONLY ONE STATE
+ * Action - State can mofified using actions - SIMPLE OBJECTS
+ * Dispactcher - Action needs to be sent by someone - known as dispatching an action
+ * Reducer - recieves the action and modifes the state to give us a new state
+ * -pure funtion
+ * -only mandotory/arugment is the 'type;
+ * Subscriber -listens for state change to update the ui (using connect)
+ */
+
+const store = createStore();
+
+export default class App extends React.Component {
   render() {
     return <CounterApp />;
   }
