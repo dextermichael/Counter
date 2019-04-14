@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import CounterApp from "./src/CounterApp";
 import { createStore } from "redux";
+import { Provider } from "react-redux";
 
 /**
  * Store - holds our state - THERE IS ONLY ONE STATE
@@ -22,7 +23,11 @@ const store = createStore(reducer);
 
 export default class App extends React.Component {
   render() {
-    return <CounterApp />;
+    return (
+      <Provider store={store}>
+        <CounterApp />
+      </Provider>
+    );
   }
 }
 
