@@ -17,7 +17,22 @@ const initalState = {
   counter: 0
 };
 
-const reducer = (state = initalState) => {};
+const reducer = (state = initalState, action) => {
+  switch (action.type) {
+    // run a switch statement to check the action.type
+    // if the case matches the type
+    case "INCREASE_COUNTER":
+      return { counter: state.counter + 1 };
+    // well update the state
+    case "DECREASE_COUNTER":
+      return { counter: state.counter - 1 };
+  }
+  return state;
+  // if nothing matches well return the state
+  // all thr functions in redux must be pure functions.
+};
+
+// reducer takes second arugment of action
 
 const store = createStore(reducer);
 
