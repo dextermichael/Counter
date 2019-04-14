@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default class CounterApp extends React.Component {
+class CounterApp extends React.Component {
   state = {
     counter: 0
   };
@@ -24,7 +24,7 @@ export default class CounterApp extends React.Component {
           <TouchableOpacity onPress={() => this.increaseCounter()}>
             <Text style={{ fontSize: 20 }}>Increase</Text>
           </TouchableOpacity>
-          <Text style={{ fontSize: 20 }}>{this.state.counter}</Text>
+          <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
           <TouchableOpacity onPress={() => this.decreaseCounter()}>
             <Text style={{ fontSize: 20 }}>Decrease</Text>
           </TouchableOpacity>
@@ -33,6 +33,14 @@ export default class CounterApp extends React.Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    counter: state.counter
+  };
+}
+
+// This getting state.counter from the store and mapping it to prop called from this class.
+export default CounterApp;
 
 const styles = StyleSheet.create({
   container: {
