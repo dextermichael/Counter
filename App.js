@@ -12,8 +12,13 @@ import { createStore } from "redux";
  * -only mandotory/arugment is the 'type;
  * Subscriber -listens for state change to update the ui (using connect)
  */
+const initalState = {
+  counter: 0
+};
 
-const store = createStore();
+const reducer = (state = initalState) => {};
+
+const store = createStore(reducer);
 
 export default class App extends React.Component {
   render() {
